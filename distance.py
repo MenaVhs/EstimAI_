@@ -84,7 +84,6 @@ def get_joints(frames, bodyparts, time, video):
                 list_[count_etiqueta].coordenadas.append(xyz)
                 xyz = Coordenada()
                 count_etiqueta += 1
-    print("jointtt", joint)
     detect_joint(joint)
 
 
