@@ -1,11 +1,18 @@
 from Conditions.conditions import distance_condition
 from writeInCSV import import_distance_contition_to_CSV
 from timeCalculation import time_per_frame
+import main
 
-joint = 'Spine'
-condition = 150
-unit = 'cm'  # or m
-event_time = 3  # sec
+#
+#
+# def get_project_feature(joint: str, condition: float, unit: str, event_time: float):
+#     return joint, condition, unit, event_time
+
+joint = main.joint
+condition = main.condition
+unit = main.unit  # or m
+event_time = main.event_time
+
 
 
 ##############################
@@ -77,7 +84,7 @@ def get_joints(frames, bodyparts, time, video):
                 list_[count_etiqueta].coordenadas.append(xyz)
                 xyz = Coordenada()
                 count_etiqueta += 1
-
+    print("jointtt", joint)
     detect_joint(joint)
 
 
