@@ -1,4 +1,5 @@
 import deeplabcut
+
 import main
 
 config_path = main.config_path
@@ -10,16 +11,19 @@ videotype = main.videotype
 save_as_csv_ = main.save_as_csv_DeepLabCut
 destfolder_ = main.destfolder_DeepLabCut_documents
 
-deeplabcut.analyze_videos(config_path, video_path, videotype, shuffle=shuffle_, trainingsetindex=0, gputouse=gputouse_, save_as_csv=save_as_csv_, destfolder=destfolder_)
+analyze_videos = main.analyze_videos
+filter_predictions = main.filterpredictions
+plot_trajectories = main.plot_trajectories
+create_labeled_video = main.create_labeled_video
+analyze_skeleton = main.analyzeskeleton
 
 
-# get_project_feature(joint, condition, unit, event_time)
+if analyze_videos: deeplabcut.analyze_videos(config_path, video_path, videotype, shuffle=shuffle_, trainingsetindex=0, gputouse=gputouse_, save_as_csv=save_as_csv_, destfolder=destfolder_)
 
+if filter_predictions: deeplabcut.filterpredictions(config_path, video_path, shuffle=shuffle_, trainingsetindex=0, filtertype='arima', p_bound=0.01, ARdegree=3, MAdegree=1, alpha=0.01)
 
-# deeplabcut.filterpredictions(config_path, video_path, shuffle=1, trainingsetindex=0, filtertype='arima', p_bound=0.01, ARdegree=3, MAdegree=1, alpha=0.01)
-# #
-# deeplabcut.plot_trajectories(config_path, video_path, videotype='mp4', shuffle=1, trainingsetindex=0, filtered=True , displayedbodyparts='all', showfigures=True)
-# #
-# deeplabcut.create_labeled_video(config_path, video_path, save_frames = True)
-# #
-# deeplabcut.analyzeskeleton(config_path, video_path, videotype='mp4', shuffle=1, trainingsetindex=0, save_as_csv=True, destfolder=None)
+if plot_trajectories: deeplabcut.plot_trajectories(config_path, video_path, videotype=videotype, shuffle=shuffle_, trainingsetindex=0, filtered=True , displayedbodyparts='all', showfigures=True)
+
+if create_labeled_video: deeplabcut.create_labeled_video(config_path, video_path, save_frames = True)
+
+if analyze_skeleton: deeplabcut.analyzeskeleton(config_path, video_path, videotype=videotype, shuffle=shuffle_, trainingsetindex=0, save_as_csv=save_as_csv_, destfolder=destfolder_)
