@@ -22,6 +22,8 @@ elapsed_time = []
 FPS = []
 VIDEO = []
 time_per_frame_ = []
+NX = []
+NY = []
 
 
 class Coordenada:
@@ -57,10 +59,12 @@ class Fps:
         self.fps = fps
 
 
-def get_joints(frames, bodyparts, time, video):
+def get_joints(frames, bodyparts, time, video, nx, ny):
     cols_frames = len(frames[0])
     elapsed_time.extend(time)
     VIDEO.append(video)
+    NX.append(nx)
+    NY.append(ny)
 
     for body in bodyparts:
         list_.append(Etiqueta(body))
@@ -114,10 +118,9 @@ def split_xy(tuples):
 
 
 def calculate_distance(x_, y_):
-    convertion = convert_coordinates(x_, y_, unit)
+    convertion = convert_coordinates(x_, y_, unit, NX, NY)
     x = convertion[0]
     y = convertion[1]
-    # print(f'X: {x}, Y: {y}')
 
     acumulated_distance = 0
     acumulated_distance_list = []
@@ -138,11 +141,14 @@ def calculate_distance(x_, y_):
     time_with_acumulated_distance_ = time_with_acumulated_distance(acumulated_distance_list, FPS)
     data = distance_condition(time_with_acumulated_distance_, x, y, times_per_frame, distances, event_time, condition,
                   FPS)
-    import_distance_contition_to_CSV(data, unit, joint, event_time, condition, VIDEO[0]) ########################  return to excel
+    import_distance_contition_to_CSV(data, unit, joint, event_time, condition, VIDEO[0], FPS[0], NY[0]) ########################  return to excel
 
-def convert_coordinates(pixel_x, pixel_y, u):
+def convert_coordinates(pixel_x, pixel_y, u, W, H):
     # Define the image resolution in pixels per unit
-    resolution = 72  # Pixels per inch
+    w = W[0]
+    h = H[0]
+
+    resolution = 28  # Pixels per inch
     if u == "cm":
         resolution /= 2.54  # Pixels per centimeter
     elif u == "m":
