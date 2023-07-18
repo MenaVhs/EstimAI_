@@ -5,7 +5,8 @@ import datetime
 import os
 
 
-def import_distance_contition_to_CSV(datos, unit, joint, event_time, condition, video_path):
+
+def import_distance_contition_to_CSV(datos, unit, joint, event_time, condition, video_path, FPS, NY):
     # Crear una instancia de Tkinter
     root = tk.Tk()
     root.withdraw()
@@ -56,7 +57,8 @@ def import_distance_contition_to_CSV(datos, unit, joint, event_time, condition, 
         escritor_csv.writerow(['Joint tracked:', joint])
         escritor_csv.writerow(['Event time:', event_time, 'sec'])
         escritor_csv.writerow(['Condition:', condition, unit])
-        escritor_csv.writerow(['Video Path:', video_path])  ###poner ruta donde se guardó el archivo
+        escritor_csv.writerow(['Video Path:', video_path])
+        escritor_csv.writerow(['FPS', FPS])
         escritor_csv.writerow([])
 
         # Escribir los headers en el archivo

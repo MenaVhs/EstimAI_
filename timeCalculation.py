@@ -3,6 +3,6 @@ def time_per_frame(distances, FPS):
     fps = FPS[0]
 
     for i in range(1, len(distances)):
-        t = distances[i] / fps
+        t = 1 / fps
         time.append(t)
     return time
