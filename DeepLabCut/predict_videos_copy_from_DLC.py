@@ -44,7 +44,6 @@ from deeplabcut.pose_estimation_tensorflow.core.openvino.session import (
 ####################################################
 # Distance imports
 from distance import get_joints, convert_to_time
-from writeInCSV import *
 
 
 ####################################################
@@ -1121,7 +1120,7 @@ def AnalyzeVideo(
             # "gpu_info": device_lib.list_local_devices()
         }
         metadata = {"data": dictionary}
-        get_joints(PredictedData, cfg['bodyparts'], time_, video)
+        get_joints(PredictedData, cfg['bodyparts'], time_, video, nx, ny)
 
         print(f"Saving results in {destfolder}...")
         dataname = os.path.join(destfolder, vname + DLCscorer + ".h5")
