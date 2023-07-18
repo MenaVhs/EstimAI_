@@ -16,17 +16,20 @@ def distance_condition(acumulated_distances, x, y, times_per_frame, distances_pe
         frame_time_list.append(frame_time)
         acumulated_distance_list.append(acumulated_distance)
 
-
+    times_acc_frame_list = []
+    time_acc = 0
 
     for i, distance_per_frame in enumerate(distances_per_frame):
         relative_distance += distance_per_frame
+        time_acc += times_per_frame[i]
+        times_acc_frame_list.append(time_acc)
 
         # Se inicia el evento
         if relative_distance >= c:  # si se cumple criterio de distancia -> 3
             event_status = 1  # inicializa el evento por los segundos de time_e
 
-            relative_index = i
-            # relative_distance_list.append(relative_distance)
+            # relative_index = i
+            # # relative_distance_list.append(relative_distance)
 
             relative_time += 1
 
@@ -49,5 +52,5 @@ def distance_condition(acumulated_distances, x, y, times_per_frame, distances_pe
     # print(relative_distance_list) # distancia acumulada hasta finalizar un evento
     # print(event_status_list) # Estado del evento por cada frame
 
-    return times_per_frame, x, y, distances_per_frame, acumulated_distance_list, relative_distance_list, event_status_list
+    return times_acc_frame_list, x, y, distances_per_frame, acumulated_distance_list, relative_distance_list, event_status_list
 
