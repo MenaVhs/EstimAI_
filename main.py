@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# Use with DEEPLABCUT interpreter
+
 # Distance conditions for experiment
 joint = 'Spine'
 condition = 100
@@ -24,4 +27,5 @@ analyze_skeleton = False
 if __name__ == "__main__":
     import exe
 
+    __author__ = 'MenaVhs'
     exe.execution()
