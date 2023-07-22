@@ -1,6 +1,6 @@
 from Conditions.conditions import distance_condition
 from GenerateCSV.writeInCSV import import_distance_contition_to_CSV
-from timeCalculation import time_per_frame
+from Conditions.timeCalculation import time_per_frame
 import main
 
 #
