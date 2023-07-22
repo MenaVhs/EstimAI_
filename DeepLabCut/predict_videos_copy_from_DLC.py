@@ -43,7 +43,7 @@ from deeplabcut.pose_estimation_tensorflow.core.openvino.session import (
 )
 ####################################################
 # Distance imports
-from distance import get_joints, convert_to_time
+from Conditions.distance import get_joints, convert_to_time
 
 
 ####################################################
