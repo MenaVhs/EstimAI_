@@ -3,3 +3,4 @@
 *.h5
 *.pickle
 4_JOINTS/
+main.py
