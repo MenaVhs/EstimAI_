@@ -3,7 +3,7 @@ from PoseClassification.elbowAlgorithm import *
 from GenerateCSV.writeInCSV import import_classes
 from PoseClassification.saveCentroind import save_centroids_txt
 
-n_clusters = 6
+n_clusters = 5
 
 # Read the orientations points from Skeleton csv created with DeepLabCut
 length_points = dataset_to_list_points(dataset_csv)
@@ -42,6 +42,12 @@ ax.set_xlabel('Componente 1', fontsize=15)
 ax.set_ylabel('Componente 2', fontsize=15)
 ax.set_title('Componentes Principales', fontsize=20)
 color_theme = np.array(["blue", "green", "orange"])
-ax.scatter(x=pca_lengths_names.Comp_1, y=pca_lengths_names.Comp_2, s=5,
+
+scatter = ax.scatter(x=pca_lengths_names.Comp_1, y=pca_lengths_names.Comp_2, s=5,
            c=clustering.labels_)
+
+# Add legend
+legend1 = ax.legend(*scatter.legend_elements(),
+                    loc="upper right", title="Clusters")
+ax.add_artist(legend1)
 plt.show()
