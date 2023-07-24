@@ -8,19 +8,12 @@ MAX_ITERATIONS = 10
 INITIALIZE_CLUSTERS = 'k-means++'
 CONVERGENCE_TOLERANCE = 0.001
 NUM_THREADS = 12
-dataset_csv = r'D:\EstiAI_\4_JOINTS\0Iteration\Test_reales\Seg Prueba 100\con recorte\Skeleton\20230719 100Cm 3S RecortadoDLC_resnet50_EstimAIJul6shuffle1_180000_skeleton.csv'
-
+dataset_csv = r'C:\Users\mena_\OneDrive - Centro de Enseñanza LANIA\Escritorio\EstimAI_\CSV\20230719 100Cm 3S RecortadoDLC_resnet50_EstimAIJul6shuffle1_180000_skeleton.csv'
 
 def dataset_to_list_points(dataset_csv):
-    # Lee los datos del archivo CSV y conviértelos en un DataFrame de pandas
     data = pd.read_csv(dataset_csv, header=1)
-
-    # Selecciona todas las columnas que se llaman "orientation" y conviértelas en una matriz NumPy
-    orientation = np.array(data.loc[:, data.columns.str.startswith('orientation')])
-
-    # Imprime la matriz de orientación
-    # print(orientation)
-    return orientation
+    length = np.array(data.loc[:, data.columns.str.startswith('length')])
+    return length
 
 
 def plot_results(inertials):
