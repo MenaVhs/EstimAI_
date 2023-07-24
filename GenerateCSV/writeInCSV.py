@@ -74,20 +74,25 @@ def import_distance_contition_to_CSV(datos, unit, joint, event_time, condition, 
     archivo_csv.close()
 
 
+
 def import_classes(data_frame):
     # Abrir una ventana modal para seleccionar el archivo de salida
     root = tk.Tk()
     root.withdraw()
     default_name = 'dataset_with_clustering.csv'
-    file_path = filedialog.asksaveasfilename(initialfile=default_name, defaultextension='.csv', filetypes=[('CSV Files', '*.csv')])
 
     filename = 'dataset_with_clustering.csv'
-    file_exists = os.path.exists(filename)
-    n = 1
-    while file_exists:
-        filename = f'dataset_with_clustering ({n}).csv'
-        file_exists = os.path.exists(filename)
-        n += 1
+    file_path = filedialog.asksaveasfilename(initialfile=filename, defaultextension='.csv', filetypes=[('CSV Files', '*.csv')])
 
     if file_path:
+        file_exists = os.path.exists(file_path)
+        if file_exists:
+            n = 1
+            path_without_ext, ext = os.path.splitext(file_path)
+            new_path = f'{path_without_ext} ({n}){ext}'
+            while os.path.exists(new_path):
+                n += 1
+                new_path = f'{path_without_ext} ({n}){ext}'
+            file_path = new_path
+
         data_frame.to_csv(file_path, index=False)
