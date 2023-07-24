@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 from PoseClassification.elbowAlgorithm import *
+from GenerateCSV.writeInCSV import import_poses
+from PoseClassification.saveCentroind import save_centroids_txt
 
-n_clusters = 3
+n_clusters = 6
 
 # Read the orientations points from Skeleton csv created with DeepLabCut
 length_points = dataset_to_list_points(dataset_csv)
@@ -12,15 +14,14 @@ clustering.fit(length_points)
 
 # Obtaining centroids with its labels
 centroids, labels = clustering.cluster_centers_, clustering.labels_
-
+# print(centroids)
 # Prediction of 
 # prediction = clustering.predict(orientation_points)
 
 dataset_df = pd.read_csv(dataset_csv, header=1)
 dataset_df['clustering'] = labels
-
-# print(dataset_df)
-
+import_poses(dataset_df)
+save_centroids_txt(centroids)
 
 # PCA
 from sklearn.decomposition import PCA
