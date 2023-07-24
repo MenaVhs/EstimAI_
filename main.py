@@ -21,8 +21,9 @@ destfolder_DeepLabCut_documents = None  # if "None", automatically DeepLabCut sa
 analyze_videos = True
 filter_predictions = False
 plot_trajectories = False
-create_labeled_video = False
 analyze_skeleton = False
+create_labeled_video = False
+
 
 if __name__ == "__main__":
     import exe
