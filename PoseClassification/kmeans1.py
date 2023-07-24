@@ -38,10 +38,10 @@ pca_lengths_names = pd.concat([pca_lengths_df, dataset_df['clustering']], axis=1
 
 fig = plt.figure(figsize=(7, 7))
 ax = fig.add_subplot(1, 1, 1)
-ax.set_xlabel('Componente 1', fontsize=15)
-ax.set_ylabel('Componente 2', fontsize=15)
-ax.set_title('Componentes Principales', fontsize=20)
-color_theme = np.array(["blue", "green", "orange"])
+ax.set_xlabel('Component 1', fontsize=15)
+ax.set_ylabel('Component 2', fontsize=15)
+ax.set_title('Principal Components', fontsize=20)
+# color_theme = np.array(["blue", "green", "orange"])
 
 scatter = ax.scatter(x=pca_lengths_names.Comp_1, y=pca_lengths_names.Comp_2, s=5,
            c=clustering.labels_)
