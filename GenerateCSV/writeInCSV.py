@@ -79,7 +79,6 @@ def import_clusters(data_frame, centroids):
     # Abrir una ventana modal para seleccionar el archivo de salida
     root = tk.Tk()
     root.withdraw()
-    default_name = 'dataset_with_clustering.csv'
 
     filename = 'dataset_with_clustering.csv'
     file_path = filedialog.asksaveasfilename(initialfile=filename, defaultextension='.csv', filetypes=[('CSV Files', '*.csv')])
