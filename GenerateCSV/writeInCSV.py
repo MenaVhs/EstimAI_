@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 import datetime
 import os
-from PoseClassification.saveCentroind import save_centroids_txt
+from PoseClassification.saveCentroids import save_centroids_txt
 
 
 
