@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 import datetime
 import os
+from PoseClassification.saveCentroind import save_centroids_txt
 
 
 
@@ -74,8 +75,7 @@ def import_distance_contition_to_CSV(datos, unit, joint, event_time, condition, 
     archivo_csv.close()
 
 
-
-def import_classes(data_frame):
+def import_clusters(data_frame, centroids):
     # Abrir una ventana modal para seleccionar el archivo de salida
     root = tk.Tk()
     root.withdraw()
@@ -96,3 +96,4 @@ def import_classes(data_frame):
             file_path = new_path
 
         data_frame.to_csv(file_path, index=False)
+    save_centroids_txt(centroids, file_path)

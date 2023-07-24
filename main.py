@@ -19,10 +19,10 @@ destfolder_DeepLabCut_documents = None  # if "None", automatically DeepLabCut sa
 
 # Analyze a video with DeepLabCut
 analyze_videos = False
-filter_predictions = True
-plot_trajectories = True
+filter_predictions = False
+plot_trajectories = False
 analyze_skeleton = False
-create_labeled_video = False
+create_labeled_video = True
 
 
 if __name__ == "__main__":
