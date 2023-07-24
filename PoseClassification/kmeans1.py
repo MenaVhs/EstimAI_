@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from PoseClassification.elbowAlgorithm import *
-from GenerateCSV.writeInCSV import import_poses
+from GenerateCSV.writeInCSV import import_classes
 from PoseClassification.saveCentroind import save_centroids_txt
 
 n_clusters = 6
@@ -20,7 +20,7 @@ centroids, labels = clustering.cluster_centers_, clustering.labels_
 
 dataset_df = pd.read_csv(dataset_csv, header=1)
 dataset_df['clustering'] = labels
-import_poses(dataset_df)
+import_classes(dataset_df)
 save_centroids_txt(centroids)
 
 # PCA
