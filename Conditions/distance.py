@@ -148,7 +148,7 @@ def convert_coordinates(pixel_x, pixel_y, u, W, H):
     w = W[0]
     h = H[0]
 
-    resolution = 28  # Pixels per inch
+    resolution = 35   # Pixels per inch
     if u == "cm":
         resolution /= 2.54  # Pixels per centimeter
     elif u == "m":
