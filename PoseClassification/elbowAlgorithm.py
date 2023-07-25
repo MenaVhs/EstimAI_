@@ -20,7 +20,7 @@ def plot_results(inertials):
     x, y = zip(*[inertia for inertia in inertials])
     plt.plot(x, y, 'ro-', markersize=8, lw=2)
     plt.grid(True)
-    plt.title('PoseClassification')
+    plt.title('Elbow Method')
     plt.xlabel('Num Clusters')
     plt.ylabel('Inertia')
     plt.show()
