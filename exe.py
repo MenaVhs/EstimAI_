@@ -14,6 +14,7 @@ analyze_videos = main.analyze_videos
 filter_predictions = main.filter_predictions
 plot_trajectories = main.plot_trajectories
 create_labeled_video = main.create_labeled_video
+save_frames = main.save_frames
 analyze_skeleton = main.analyze_skeleton
 
 
