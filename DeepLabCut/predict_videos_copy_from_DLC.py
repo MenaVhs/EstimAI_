@@ -9,7 +9,7 @@
 # Licensed under GNU Lesser General Public License v3.0
 
 # path of the file
-# C:\Users\Name\anaconda3\envs\DEEPLABCUT\Lib\site-packages\deeplabcut\pose_estimation_tensorflow\.py
+# C:\Users\Name\anaconda3\envs\DEEPLABCUT\Lib\site-packages\deeplabcut\pose_estimation_tensorflow\predict_videos.py
 #
 
 
