@@ -45,8 +45,13 @@ from deeplabcut.pose_estimation_tensorflow.core.openvino.session import (
     is_openvino_available,
 )
 ####################################################
+
 # Distance imports
-from Conditions.distance import get_joints, convert_to_time
+import main
+Activate_Distance_condition_ = main.Activate_Distance_condition
+
+if Activate_Distance_condition_:
+    from Conditions.distance import get_joints, convert_to_time
 
 
 ####################################################
@@ -1035,7 +1040,7 @@ def AnalyzeVideo(
         fps = cap.get(cv2.CAP_PROP_FPS)
         nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         duration = nframes * 1.0 / fps
-        time_ = convert_to_time(duration, fps)
+        # time_ = convert_to_time(duration, fps)
         size = (
             int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)),
             int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)),
@@ -1123,7 +1128,7 @@ def AnalyzeVideo(
             # "gpu_info": device_lib.list_local_devices()
         }
         metadata = {"data": dictionary}
-        get_joints(PredictedData, cfg['bodyparts'], time_, video, nx, ny)
+        # get_joints(PredictedData, cfg['bodyparts'], time_, video, nx, ny)
 
         print(f"Saving results in {destfolder}...")
         dataname = os.path.join(destfolder, vname + DLCscorer + ".h5")
