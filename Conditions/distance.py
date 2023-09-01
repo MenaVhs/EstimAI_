@@ -60,35 +60,39 @@ class Fps:
 
 
 def get_joints(frames, bodyparts, time, video, nx, ny):
+
     cols_frames = len(frames[0])
     elapsed_time.extend(time)
     VIDEO.append(video)
     NX.append(nx)
     NY.append(ny)
 
-    for body in bodyparts:
-        list_.append(Etiqueta(body))
+    if main.Activate_Distance_condition:
+        for body in bodyparts:
+            list_.append(Etiqueta(body))
 
-    for i in range(len(frames)):
-        xyz = Coordenada()
+        for i in range(len(frames)):
+            xyz = Coordenada()
 
-        count = 0
-        count_etiqueta = 0
-        for j in range(cols_frames):
-            if count == 0:
-                xyz.x = frames[i][j]
-            if count == 1:
-                xyz.y = frames[i][j]
-            if count == 2:
-                xyz.z = frames[i][j]
-            count += 1
+            count = 0
+            count_etiqueta = 0
+            for j in range(cols_frames):
+                if count == 0:
+                    xyz.x = frames[i][j]
+                if count == 1:
+                    xyz.y = frames[i][j]
+                if count == 2:
+                    xyz.z = frames[i][j]
+                count += 1
 
-            if count > 2:
-                count = 0
-                list_[count_etiqueta].coordenadas.append(xyz)
-                xyz = Coordenada()
-                count_etiqueta += 1
-    detect_joint(joint)
+                if count > 2:
+                    count = 0
+                    list_[count_etiqueta].coordenadas.append(xyz)
+                    xyz = Coordenada()
+                    count_etiqueta += 1
+        detect_joint(joint)
+    else:
+        pass
 
 
 def detect_joint(name):
