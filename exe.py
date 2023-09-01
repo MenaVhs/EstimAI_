@@ -14,7 +14,7 @@ analyze_videos = main.analyze_videos
 filter_predictions = main.filter_predictions
 plot_trajectories = main.plot_trajectories
 create_labeled_video = main.create_labeled_video
-save_frames = main.save_frames
+save_frames_ = main.save_frames
 analyze_skeleton = main.analyze_skeleton
 
 
@@ -31,7 +31,7 @@ def execution():
                                                        trainingsetindex=0, filtered=True, displayedbodyparts='all',
                                                        showfigures=True)
 
-    if create_labeled_video: deeplabcut.create_labeled_video(config_path, video_path, save_frames=True)
+    if create_labeled_video: deeplabcut.create_labeled_video(config_path, video_path, save_frames=save_frames_)
 
     if analyze_skeleton: deeplabcut.analyzeskeleton(config_path, video_path, videotype=videotype, shuffle=shuffle_,
                                                     trainingsetindex=0, save_as_csv=save_as_csv_,
