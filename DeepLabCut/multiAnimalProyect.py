@@ -29,7 +29,7 @@ config_path = r'C:\Users\mena_\Desktop\Child-Caregiver-Teresa-2023-09-12\config.
 
 # To train the network
 # deeplabcut.pose_estimation_tensorflow.training.train_network(config_path, shuffle=1, trainingsetindex=0, max_snapshots_to_keep=5, displayiters=1000, saveiters=1000, maxiters=200000, gputouse=0, autotune=True, allow_growth=True)
-# deeplabcut.train_network(config_path, shuffle=1, trainingsetindex=0, gputouse=0, max_snapshots_to_keep=5, autotune=False, displayiters=100, saveiters=15000, maxiters=20000, allow_growth=True)
+# deeplabcut.train_network(config_path, shuffle=1, trainingsetindex=0, gputouse=0, max_snapshots_to_keep=5, autotune=False, displayiters=1000, saveiters=1000, maxiters=20000, allow_growth=True)
 
 # To evaluate de network
 # deeplabcut.evaluate_network(config_path, plotting=True)
