@@ -25,7 +25,7 @@ config_path = r'C:\Users\mena_\Desktop\Child-Caregiver-Teresa-2023-09-12\config.
 
 # Create the Training Dataset
 # the skeleton defined in the config.yaml / default AUGMENTATION = imgaug
-# deeplabcut.create_multianimaltraining_dataset(config_path, paf_graph='config')
+# deeplabcut.create_multianimaltraining_dataset(config_path, paf_graph='config', net_type='resnet_152', Shuffles=5)
 
 # To train the network
 # deeplabcut.pose_estimation_tensorflow.training.train_network(config_path, shuffle=1, trainingsetindex=0, max_snapshots_to_keep=5, displayiters=1000, saveiters=1000, maxiters=200000, gputouse=0, autotune=True, allow_growth=True)
